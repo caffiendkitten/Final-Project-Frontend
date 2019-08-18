@@ -4,11 +4,12 @@ import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
 import { Container,  Col } from 'react-bootstrap';
-
+import AddToAccount from './containers/AddToAccount'
 
 const userURL = "http://localhost:3000/api/v1/login"
 const signupURL = "http://localhost:3000/api/v1/users"
 const accountURL = "http://localhost:3000/api/v1/accounts"
+const loginURL = "http://localhost:3000/api/v1/logins"
 
 
 
@@ -23,7 +24,8 @@ class App extends Component {
     user_id: '',
     password: "",
     email: '',
-    accounts: []
+    accounts: [],
+    username: ""
   }
 
 
@@ -39,11 +41,12 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         sessionStorage.setItem('token', json.jwt)
+        // debugger;
         this.setState({
           token: json.jwt,
           user: json.user.username,
           user_id: json.user.id,
-          password: json.user.password,
+          // password: json.user.password,
           email: json.user.email,
           accounts: json.user.accounts
         })
@@ -156,8 +159,8 @@ class App extends Component {
   // }
 
   createAccount = (accountObj) =>{
-    console.log(accountObj, this.state.user_id)
-    console.log("hit", accountObj.account_name)
+    // console.log(accountObj, this.state.user_id)
+    // console.log("hit", accountObj.account_name)
     this.setState({
       accounts: [...this.state.accounts, accountObj]
     })
@@ -202,8 +205,6 @@ class App extends Component {
     this.setState({
         accounts: newAccounts
     })
-
-
     // // debugger;
     fetch(`${accountURL}/${deleteAccountObj.id}`, {
       method: 'DELETE', 
@@ -235,7 +236,72 @@ class App extends Component {
 
   }
 
+  addToAccount = (addToAccountObj, username, password) =>{
+    console.log("app here:", addToAccountObj, username, password);
+    // this.setState({
+    //       accounts: [...this.state.accounts, addToAccountObj]
+    //     })
 
+    // this.setState({
+    //   accounts: [this.state.accounts, ...addToAccountObj.logins: {username: username, password: password, account_id: addToAccountObj.id}]
+    // })
+
+    console.log(addToAccountObj.logins)
+
+    // this.setState({
+    
+    //     addToAccountObj.logins: [...{username: username,
+    //       saved_password: password, account_id: addToAccountObj.id}]
+    // })
+
+    // this.setState({
+    // accounts: [addToAccountObj.logins, [...addToAccountObj.logins, {username: username, saved_password: password, account_id: addToAccountObj.id}]]
+    // })
+
+
+    // this.setState({
+      
+    //   accounts:  [...addToAccountObj.logins, 
+    //   {username: username,
+    //   saved_password: password}
+    //   ]
+    // })
+    // debugger;
+    fetch(loginURL, {
+      method: 'POST', 
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        
+        login: {
+          username: username,
+          password_digest: password,
+          account_id: addToAccountObj.id
+        }
+      })
+    })
+    // .then(res => res.json())
+    // .then(json => {
+    //   sessionStorage.setItem('token', json.jwt)
+    //   // this.setState({
+    //   //   // token: json.jwt,
+    //   //   // user: json.user.username,
+    //   //   // user_id: json.user.id,
+    //   //   // password: json.user.password,
+    //   //   // email: json.user.email,
+    //   //   accounts: json.user.accounts
+    //   // })
+    // })
+    .catch(error => console.error('Error:', error));
+
+
+
+
+    
+  }
 
   render () {
     return <Fragment>
@@ -244,10 +310,13 @@ class App extends Component {
           <Header 
           user={this.state.user} 
           email={this.state.email} 
+          username={this.state.username}
+          password={this.state.password}
           accounts={this.state.accounts}
           handleLogout={this.logout} 
           createAccount={this.createAccount}
-          deleteAccount={this.deleteAccount}           
+          deleteAccount={this.deleteAccount}   
+          addToAccount={this.addToAccount}        
           />
         </div>
       :<div align="center">

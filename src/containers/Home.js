@@ -1,12 +1,14 @@
 import React from 'react';
 import AccountList from "../components/AccountList"
-
+import AddToAccount from "../containers/AddToAccount"
 // import { Container } from 'react-bootstrap';
 
 
 class Home extends React.Component {
   state ={
-    account_name: []
+    account_name: [],
+    username: "",
+    password: ""
     // user_id: ""
 }
 
@@ -22,10 +24,16 @@ handleChange = (event) => {
 }
 
 deleteAccount = (acct) => {
-  console.log(acct)
+  // console.log(acct)
   this.props.deleteAccount(acct)
 }
 
+addToAccount = (acctObj, username, password) => {
+
+  // console.log("home level:", acctObj, this.state.username, this.state.password)
+  this.props.addToAccount(acctObj, this.state.username, this.state.password)
+  // <AddToAccount acctObj={acctObj} />
+}
 
 
   render () {
@@ -58,33 +66,65 @@ deleteAccount = (acct) => {
                   <span>{account.account_name}</span>
                   {account.logins && account.logins.length > 0 ?
                     <React.Fragment>
-                    <span id="button_floater">
-                      <button >
-                          Update Account Name
+                    {/* <span id="button_floater">
+                      <button onClick={() => <AddToAccount account={account} />}>
+                      Add Credentials to Account
                       </button>
 
-                    </span> 
+                    </span>  */}
                     <ul className="account-list">
                         {account.logins.map((login, idx) =>{
                           return <AccountList logins={login} idx={idx}/>
                         })
                       }
                     </ul>
+                    <ul>
+                      <li>
+                        <input
+                        type="text" 
+                        placeholder="Username" 
+                        name="username"
+                        onChange={this.handleChange}
+                      />
+                      <input
+                        type="text" 
+                        placeholder="Password" 
+                        name="password"
+                        onChange={this.handleChange}
+                      />
+                      <button onClick={() => this.addToAccount(account, this.state.username, this.state.password)}>Add</button>
+                      </li>
+                    </ul>
                     </React.Fragment>
                   :  
-                
+                    <React.Fragment>
+                      <span id="button_floater">
+                        <button onClick={() => this.deleteAccount(account)} >
+                            Delete Account Info
+                        </button>
+                      </span> 
+                      <ul>
+                      <li>
+                        <input
+                        type="text" 
+                        placeholder="Username " 
+                        name="username"
+                        onChange={this.handleChange}
+                      />
+                      <input
+                        type="text" 
+                        placeholder="Password " 
+                        name="password"
+                        onChange={this.handleChange}
+                      />
+                      <button onClick={() => this.addToAccount(account)}>Add</button>
+                      </li>
+                    </ul>
+                      
+                    </React.Fragment>
 
-                    <span id="button_floater">
-                    <button >
-                          Add Credentials to Account
-                      </button>
-                      <button >
-                          Update Account Name
-                      </button>
-                      <button onClick={() => this.deleteAccount(account)} >
-                          Delete Account Info
-                      </button>
-                    </span> 
+
+                    
                   }
                 <hr></hr>
                 </li>

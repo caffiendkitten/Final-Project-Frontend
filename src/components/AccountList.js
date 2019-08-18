@@ -2,12 +2,9 @@ import React from 'react';
 
 class AccountList extends React.Component {
 
-
   render () {
-    return (
-        <div>
-        {/* {console.log(this.props.logins.username)} */}
-        <li className="account-list-li">Username: {this.props.logins.username}, Password: {this.props.logins.saved_password}
+// console.log(this.props.logins.id)
+    return <li key={this.props.logins.id} className="account-list-li">Username: {this.props.logins.username}, Password: {this.props.logins.saved_password}
             <span id="button_floater">
                 <button >
                 Update
@@ -17,9 +14,6 @@ class AccountList extends React.Component {
                 </button>
             </span> 
         </li>
-
-      </div>
-    );
   }
 }
 

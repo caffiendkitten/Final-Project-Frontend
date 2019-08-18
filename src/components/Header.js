@@ -48,6 +48,9 @@ class Header extends Component {
                                                             />} ></Route>
                 <Route path ="/about" exact render={props => <About  />} ></Route>
                 <Route path ="/" exact render={props => <Home 
+                                                            username={this.props.username}
+                                                            password={this.props.password}
+                                                            addToAccount={this.props.addToAccount}
                                                             createAccount={this.props.createAccount} 
                                                             deleteAccount={this.props.deleteAccount} 
                                                             user={this.props.user} 
