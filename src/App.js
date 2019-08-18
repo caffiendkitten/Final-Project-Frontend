@@ -4,7 +4,7 @@ import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
 import { Container,  Col } from 'react-bootstrap';
-import AddToAccount from './containers/AddToAccount'
+// import AddToAccount from './containers/AddToAccount'
 
 const userURL = "http://localhost:3000/api/v1/login"
 const signupURL = "http://localhost:3000/api/v1/users"
@@ -307,40 +307,48 @@ class App extends Component {
 
   deleteFromAccount = (deleteFromAccountObj) =>{
     console.log("app here:", deleteFromAccountObj);
+    // console.log(deleteFromAccountObj)
 
-    console.log(deleteFromAccountObj)
-
-
-    // // debugger;
-    // fetch(loginURL, {
-    //   method: 'POST', 
-    //   headers: {
-    //     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-        
-    //     login: {
-    //       username: username,
-    //       password_digest: password,
-    //       account_id: addToAccountObj.id
-    //     }
-    //   })
+    // const deleteAccount = this.state.accounts.logins.filter(account => {
+    //   return deleteFromAccountObj.id !== account.id
     // })
-    // // .then(res => res.json())
-    // // .then(json => {
-    // //   sessionStorage.setItem('token', json.jwt)
-    // //   // this.setState({
-    // //   //   // token: json.jwt,
-    // //   //   // user: json.user.username,
-    // //   //   // user_id: json.user.id,
-    // //   //   // password: json.user.password,
-    // //   //   // email: json.user.email,
-    // //   //   accounts: json.user.accounts
-    // //   // })
-    // // })
-    // .catch(error => console.error('Error:', error));
+    // this.setState({
+    //     accounts: deleteAccount
+    // })
+
+
+
+
+    // debugger;
+    fetch(`${loginURL}/${deleteFromAccountObj.id}`, {
+      method: 'DELETE', 
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+      // body: JSON.stringify({
+        
+      //   login: {
+      //     username: username,
+      //     password_digest: password,
+      //     account_id: addToAccountObj.id
+      //   }
+      // })
+    })
+    // .then(res => res.json())
+    // .then(json => {
+    //   sessionStorage.setItem('token', json.jwt)
+    //   // this.setState({
+    //   //   // token: json.jwt,
+    //   //   // user: json.user.username,
+    //   //   // user_id: json.user.id,
+    //   //   // password: json.user.password,
+    //   //   // email: json.user.email,
+    //   //   accounts: json.user.accounts
+    //   // })
+    // })
+    .catch(error => console.error('Error:', error));
 
 
 

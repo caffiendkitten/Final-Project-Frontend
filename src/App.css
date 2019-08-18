@@ -44,6 +44,11 @@ form {
   /* align-items: center; */
 }
 
+.account-name h1 {
+  text-align: left;
+
+}
+
 /* ==APP Level Style== Start */
 /* /*  */
 .container {
