@@ -303,6 +303,57 @@ class App extends Component {
     
   }
 
+
+
+  deleteFromAccount = (deleteFromAccountObj) =>{
+    console.log("app here:", deleteFromAccountObj);
+
+    console.log(deleteFromAccountObj)
+
+
+    // // debugger;
+    // fetch(loginURL, {
+    //   method: 'POST', 
+    //   headers: {
+    //     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+        
+    //     login: {
+    //       username: username,
+    //       password_digest: password,
+    //       account_id: addToAccountObj.id
+    //     }
+    //   })
+    // })
+    // // .then(res => res.json())
+    // // .then(json => {
+    // //   sessionStorage.setItem('token', json.jwt)
+    // //   // this.setState({
+    // //   //   // token: json.jwt,
+    // //   //   // user: json.user.username,
+    // //   //   // user_id: json.user.id,
+    // //   //   // password: json.user.password,
+    // //   //   // email: json.user.email,
+    // //   //   accounts: json.user.accounts
+    // //   // })
+    // // })
+    // .catch(error => console.error('Error:', error));
+
+
+
+
+    
+  }
+
+
+
+
+
+
+
   render () {
     return <Fragment>
       {sessionStorage.getItem('token') ? 
@@ -316,7 +367,8 @@ class App extends Component {
           handleLogout={this.logout} 
           createAccount={this.createAccount}
           deleteAccount={this.deleteAccount}   
-          addToAccount={this.addToAccount}        
+          addToAccount={this.addToAccount}     
+          deleteFromAccount={this.deleteFromAccount}   
           />
         </div>
       :<div align="center">

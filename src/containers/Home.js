@@ -36,6 +36,7 @@ addToAccount = (acctObj, username, password) => {
 }
 
 
+
   render () {
     return (<div align="center">
       <h3>Welcome back {this.props.user}</h3>
@@ -74,7 +75,12 @@ addToAccount = (acctObj, username, password) => {
                     </span>  */}
                     <ul className="account-list">
                         {account.logins.map((login, idx) =>{
-                          return <AccountList logins={login} idx={idx}/>
+                          return <AccountList 
+                                      deleteFromAccount={this.props.deleteFromAccount} 
+                                      logins={login} 
+                                      key={idx}
+                                      account={account}
+                                      />
                         })
                       }
                     </ul>

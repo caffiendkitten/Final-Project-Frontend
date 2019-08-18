@@ -51,6 +51,7 @@ class Header extends Component {
                                                             username={this.props.username}
                                                             password={this.props.password}
                                                             addToAccount={this.props.addToAccount}
+                                                            deleteFromAccount={this.props.deleteFromAccount}
                                                             createAccount={this.props.createAccount} 
                                                             deleteAccount={this.props.deleteAccount} 
                                                             user={this.props.user} 
