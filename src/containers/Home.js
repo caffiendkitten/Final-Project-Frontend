@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountList from "../components/AccountList"
-import AddToAccount from "../containers/AddToAccount"
+// import AddToAccount from "../containers/AddToAccount"
 // import { Container } from 'react-bootstrap';
 
 
@@ -64,7 +64,7 @@ addToAccount = (acctObj, username, password) => {
           <ul className="account-list">
             {this.props.accounts.map((account, idx) => {
               return <li key={idx} className="account-list" >
-                  <span>{account.account_name}</span>
+                  <span className="account-name"><h1>{account.account_name}</h1></span>
                   {account.logins && account.logins.length > 0 ?
                     <React.Fragment>
                     {/* <span id="button_floater">
