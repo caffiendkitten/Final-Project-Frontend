@@ -57,6 +57,11 @@ class App extends Component {
 
 
   signup = (userObj) =>{
+    // debugger;
+
+    // console
+
+
     fetch(signupURL, {
       method: 'POST', 
       headers: {
@@ -159,8 +164,14 @@ class App extends Component {
   // }
 
   createAccount = (accountObj) =>{
-    // console.log(accountObj, this.state.user_id)
-    // console.log("hit", accountObj.account_name)
+    // console.log("accountobject", accountObj)
+    // // console.log("hit", accountObj.account_name)
+    // accountObj.account_name && accountObj.account_name.length > 8 
+    // ? console.log("valid") 
+    // : console.log("not valid")
+
+    // debugger
+
     this.setState({
       accounts: [...this.state.accounts, accountObj]
     })
@@ -197,8 +208,8 @@ class App extends Component {
 
   deleteAccount = (deleteAccountObj) =>{
     // console.log(accountObj, this.state.user_id)
-    console.log("hit", deleteAccountObj)
-    console.log(this.state.accounts)
+    // console.log("hit", deleteAccountObj)
+    // console.log(this.state.accounts)
     const newAccounts = this.state.accounts.filter(account => {
       return deleteAccountObj.id !== account.id
     })
@@ -237,36 +248,25 @@ class App extends Component {
   }
 
   addToAccount = (addToAccountObj, username, password) =>{
-    console.log("app here:", addToAccountObj, username, password);
-    // this.setState({
-    //       accounts: [...this.state.accounts, addToAccountObj]
-    //     })
+    addToAccountObj.username = username;
+    addToAccountObj.saved_password = password;
+    // console.log("add cred to app here:", addToAccountObj, username, password);
 
-    // this.setState({
-    //   accounts: [this.state.accounts, ...addToAccountObj.logins: {username: username, password: password, account_id: addToAccountObj.id}]
-    // })
-
-    console.log(addToAccountObj.logins)
-
-    // this.setState({
-    
-    //     addToAccountObj.logins: [...{username: username,
-    //       saved_password: password, account_id: addToAccountObj.id}]
-    // })
-
-    // this.setState({
-    // accounts: [addToAccountObj.logins, [...addToAccountObj.logins, {username: username, saved_password: password, account_id: addToAccountObj.id}]]
-    // })
+    const updatedAccounts = this.state.accounts.map((i) => {
+      if (i.account_name === addToAccountObj.account_name) {
+        i.logins = [...i.logins, {username: username, saved_password: password, account_id: i.id}]
+      } 
+      return i
+    })
+    this.setState({
+      accounts: updatedAccounts
+    })
 
 
-    // this.setState({
-      
-    //   accounts:  [...addToAccountObj.logins, 
-    //   {username: username,
-    //   saved_password: password}
-    //   ]
-    // })
-    // debugger;
+
+    // console.log(addToAccountObj.logins)
+
+
     fetch(loginURL, {
       method: 'POST', 
       headers: {
@@ -306,18 +306,23 @@ class App extends Component {
 
 
   deleteFromAccount = (deleteFromAccountObj) =>{
-    console.log("app here:", deleteFromAccountObj);
-    // console.log(deleteFromAccountObj)
 
-    // const deleteAccount = this.state.accounts.logins.filter(account => {
-    //   return deleteFromAccountObj.id !== account.id
-    // })
-    // this.setState({
-    //     accounts: deleteAccount
-    // })
+    // console.log("add cred to app here:", deleteFromAccountObj);
 
+    const updatedAccounts = this.state.accounts.map((i) => {
+      if (i.id === deleteFromAccountObj.account_id) {
+        i.logins = i.logins.filter((login) => {
+          return deleteFromAccountObj.id !== login.id
+        })
+      } 
+      return i
+    })
+    
+    this.setState({
+      accounts: updatedAccounts
+    })
 
-
+// console.log(updatedAccounts)
 
     // debugger;
     fetch(`${loginURL}/${deleteFromAccountObj.id}`, {

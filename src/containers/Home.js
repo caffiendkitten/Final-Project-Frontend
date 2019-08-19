@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountList from "../components/AccountList"
-// import AddToAccount from "../containers/AddToAccount"
+import EditAccountCreds from "../containers/EditAccountCreds"
 // import { Container } from 'react-bootstrap';
 
 
@@ -84,6 +84,7 @@ addToAccount = (acctObj, username, password) => {
                         })
                       }
                     </ul>
+                    {/* <EditAccountCreds account={account} username={this.state.username} password={this.state.password}/> */}
                     <ul>
                       <li>
                         <input

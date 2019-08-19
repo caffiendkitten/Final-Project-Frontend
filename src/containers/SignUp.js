@@ -53,11 +53,13 @@ class Signup extends React.Component {
                     
                     <Form.Label>Email:</Form.Label>
                     <Form.Control 
-                        type="text" 
+                        type="email" 
+                        id="email-field"
                         required={true} 
                         placeholder="Enter email" 
                         name="email"
                         onChange={this.handleChange}
+                        title="Please provide a valid email address."
                         />
                         <br></br>
                     
