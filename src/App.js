@@ -13,7 +13,7 @@ const loginURL = "http://localhost:3000/api/v1/logins"
 
 
 const Cryptr = require('cryptr');
-const cryptr = new Cryptr('Akeytobemoved');
+export const cryptr = new Cryptr('Akeytobemoved');
 // console.log("token at app:", sessionStorage.getItem('token'))
 
 class App extends Component {
@@ -196,16 +196,16 @@ class App extends Component {
     // const Cryptr = require('cryptr');
     // const cryptr = new Cryptr('myTotalySecretKey');
     const encryptedString = cryptr.encrypt(password);
-    console.log(encryptedString); 
-    const decryptedString = cryptr.decrypt(encryptedString);
-    console.log(decryptedString); 
+    console.log("encrypted on send", encryptedString); 
+    // const decryptedString = cryptr.decrypt(encryptedString);
+    // console.log(decryptedString); 
 
     // debugger
 
 
     const updatedAccounts = this.state.accounts.map((i) => {
       if (i.account_name === addToAccountObj.account_name) {
-        i.logins = [...i.logins, {username: username, saved_password: password, account_id: i.id}]
+        i.logins = [...i.logins, {username: username, saved_password: encryptedString, account_id: i.id}]
       } 
       return i
     })
@@ -229,7 +229,7 @@ class App extends Component {
         
         login: {
           username: username,
-          password_digest: password,
+          password_digest: encryptedString,
           account_id: addToAccountObj.id
         }
       })
