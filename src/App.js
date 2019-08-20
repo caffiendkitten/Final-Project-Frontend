@@ -12,9 +12,9 @@ const accountURL = "http://localhost:3000/api/v1/accounts"
 const loginURL = "http://localhost:3000/api/v1/logins"
 
 
-
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('Akeytobemoved');
 // console.log("token at app:", sessionStorage.getItem('token'))
-
 
 class App extends Component {
 
@@ -26,6 +26,11 @@ class App extends Component {
     email: '',
     accounts: [],
     username: ""
+  }
+  componentDidMount = () => {
+    sessionStorage.clear()
+    localStorage.clear()
+    this.forceUpdate()
   }
 
 
@@ -51,7 +56,8 @@ class App extends Component {
           accounts: json.user.accounts
         })
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => alert("Unknown username or password."))
+
   }
 
 
@@ -91,7 +97,7 @@ class App extends Component {
         email: json.user.email,
       })
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => alert("Error signing up. Username is already taken. Please choose another."));
   }
 
 
@@ -105,73 +111,8 @@ class App extends Component {
     sessionStorage.clear()
   }
 
-  // createUser = () {
-  //   // testing post to create new user
-  //   fetch(userURL, {
-  //     method: 'POST', 
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       user: {
-  //         username: 'David1234',
-  //         password: '12345'
-  //       }
-  //     })
-  //   })
-  //   .then(res => res.json())
-  //   .then(json => {
-  //     this.setState({
-  //       token: localStorage.setItem('token', json.jwt),
-  //       user: localStorage.setItem('user', json.user_id)
-  //     })
-  //   })
-  // }
-
-    
-    // fetch(userURL, {
-    //   method: 'GET',
-    //   headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json'
-    //   }
-    // })
-    // .then(res => res.json())
-    // .then(data => console.log(data))
-    
-
-
-
-  // fetchUsers = () => {
-  //   fetch(userURL, {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem('token')}`,
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then(json => this.setState({token: localStorage.setItem('token', json.jwt)}))
-  // }
-
-  // componentShouldUpdate() {
-  //   if (localStorage.getItem('token')) {
-  //     // do fetch for user accounts to list
-      
-  //   }
-  // }
 
   createAccount = (accountObj) =>{
-    // console.log("accountobject", accountObj)
-    // // console.log("hit", accountObj.account_name)
-    // accountObj.account_name && accountObj.account_name.length > 8 
-    // ? console.log("valid") 
-    // : console.log("not valid")
-
-    // debugger
-
     this.setState({
       accounts: [...this.state.accounts, accountObj]
     })
@@ -251,6 +192,16 @@ class App extends Component {
     addToAccountObj.username = username;
     addToAccountObj.saved_password = password;
     // console.log("add cred to app here:", addToAccountObj, username, password);
+
+    // const Cryptr = require('cryptr');
+    // const cryptr = new Cryptr('myTotalySecretKey');
+    const encryptedString = cryptr.encrypt(password);
+    console.log(encryptedString); 
+    const decryptedString = cryptr.decrypt(encryptedString);
+    console.log(decryptedString); 
+
+    // debugger
+
 
     const updatedAccounts = this.state.accounts.map((i) => {
       if (i.account_name === addToAccountObj.account_name) {
@@ -362,13 +313,9 @@ class App extends Component {
   }
 
 
-
-
-
-
-
   render () {
     return <Fragment>
+
       {sessionStorage.getItem('token') ? 
         <div className="App">
           <Header 
@@ -385,18 +332,20 @@ class App extends Component {
           />
         </div>
       :<div align="center">
-        {/* <Header2 handleLogin={this.login}  /> */}
         <h1>Welcome to the Password Manager</h1>
         <hr></hr>
+        <p>
+          With billions of login credentials being breached at any time it becomes more and more important to secure our data. <br></br>
+          The first step to security is a password manager as this will allow people to create strong and unique passwords.<br></br>
+          By creating strong and unique passwords this will help keep user credentials secure even if they are part of a data breach.
+        </p>
         <Container>
-          {/* <Row > */}
             <Col className="login"><Login handleLogin={this.login} /></Col>
             <Col className="signup"><SignUp handleSignUp={this.signup} /></Col>
-          {/* </Row> */}
-          {/* <button onClick={this.fetchUsers}>Click me</button> */}
         </Container>
       </div>
       }
+
     </Fragment>
   }
 }

@@ -8,7 +8,8 @@ class Home extends React.Component {
   state ={
     account_name: [],
     username: "",
-    password: ""
+    password: "",
+    logins: []
     // user_id: ""
 }
 
@@ -31,7 +32,15 @@ deleteAccount = (acct) => {
 addToAccount = (acctObj, username, password) => {
 
   // console.log("home level:", acctObj, this.state.username, this.state.password)
-  this.props.addToAccount(acctObj, this.state.username, this.state.password)
+  if (this.state.username !== '' || this.state.password !== ''){
+    this.props.addToAccount(acctObj, this.state.username, this.state.password)
+    this.setState({
+      username: '',
+      password: ''
+    })
+  }else {
+    alert("need username and password")
+  }
   // <AddToAccount acctObj={acctObj} />
 }
 

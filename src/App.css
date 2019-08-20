@@ -52,6 +52,25 @@ form {
   text-indent: 30px;
 }
 
+/* ==Password Checker Style== Start */
+.password-check {
+  font-family: "Open Sans", sans-serif;
+  max-width: 500px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.password-check h2 {
+  text-align: center;
+}
+
+.checker {
+  text-align: justify;
+  min-height: 150px;
+}
+/* ==Password Checker Style== Stop */
+
+
 /* ==APP Level Style== Start */
 /* /*  */
 .container {

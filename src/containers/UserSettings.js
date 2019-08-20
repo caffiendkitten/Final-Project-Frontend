@@ -16,7 +16,7 @@ class UserSettings extends React.Component {
 
 
 
-        return <Container>
+        return <Container className="main-container">
             <h3>User Settings for {this.props.user}</h3>
 
             <p>{this.props.user} <button onClick={this.editUser}>Edit Username</button></p>
