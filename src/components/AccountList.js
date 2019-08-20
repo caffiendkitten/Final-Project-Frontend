@@ -1,5 +1,7 @@
 import React from 'react';
-
+// import {cryptr} from '../App'
+const Cryptr = require('cryptr');
+// const cryptr = new Cryptr('Akeytobemoved');
 class AccountList extends React.Component {
 
 
@@ -8,6 +10,8 @@ deleteFromAccount = (deleteFromAccountObj) => {
   // console.log("hit in accountList")
   this.props.deleteFromAccount(deleteFromAccountObj)
 }
+// const Cryptr = require('cryptr');
+cryptr = new Cryptr('Akeytobemoved');
 
 // updateCreds = (updateCred) => {
 //   console.log("found cred", updateCred)
@@ -16,7 +20,12 @@ deleteFromAccount = (deleteFromAccountObj) => {
 
   render () {
 // console.log(this.props.account)
-    return <li key={this.props.logins.id} className="account-list-li">Username: {this.props.logins.username}, Password: {this.props.logins.saved_password}
+// debugger;
+    return <li 
+            key={this.props.logins.id} 
+            className="account-list-li"
+            >
+              Username: {this.props.logins.username}, Password: {this.cryptr.decrypt(this.props.logins.saved_password)}
             <span id="button_floater">
                 {/* <button onClick={() => this.updateCreds(this.props.logins)}>
                 Update
