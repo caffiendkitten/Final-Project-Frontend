@@ -17,6 +17,7 @@ class Signup extends React.Component {
 
     onSubmit = (event) => {
         event.preventDefault()
+        console.log("signup state", this.state)
         this.props.handleSignUp(this.state)
     }
     handleChange = (event) => {

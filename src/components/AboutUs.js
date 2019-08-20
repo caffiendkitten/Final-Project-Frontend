@@ -15,12 +15,20 @@ const AboutUs = () => {
                     iterative count over time to become slower and more difficult to brute-force attack.</p>
                 <p>The bcrypt algorithm is the result of encrypting the text "OrpheanBeholderScryDoubt" 64 times using Blowfish.</p>
             </span>
-        <h4>This project also encrypts each user created credential with </h4>
+        <h4>This project also encrypts each user created credential with...</h4>
+
+
+        <h4>This also uses a <a href="https://mxschmitt.github.io/react-have-i-been-pwned/">GitHub repository</a> to check the 
+        <a href="https://haveibeenpwned.com/">Have I Been Pwned database</a> to check if a password has been compromised.</h4>
+
         
+
         <h5>Check out some of my resources for more information</h5>
             <span className='text-indent'>
                 <a href="https://en.wikipedia.org/wiki/Bcrypt">Becypt Wiki</a><br></br>
-                <a href="https://medium.com/@tpstar/password-digest-column-in-user-migration-table-871ff9120a5">Password-digest with Brcypt</a>
+                <a href="https://medium.com/@tpstar/password-digest-column-in-user-migration-table-871ff9120a5">Password-digest with Brcypt</a><br></br>
+                <a href="https://mxschmitt.github.io/react-have-i-been-pwned/">GitHub mxschmitt/react-have-i-been-pwned</a><br></br>
+                <a href="https://haveibeenpwned.com">Have I Been Pwned?</a><br></br>
             </span>
         
     </div>       
