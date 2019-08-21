@@ -116,9 +116,10 @@ class App extends Component {
 
 
   createAccount = (accountObj) =>{
-    this.setState({
-      accounts: [...this.state.accounts, accountObj]
-    })
+    console.log(accountObj)
+    // this.setState({
+    //   accounts: [...this.state.accounts, accountObj]
+    // })
     // debugger;
     fetch(accountURL, {
       method: 'POST', 
@@ -134,20 +135,25 @@ class App extends Component {
         }
       })
     })
-    // .then(res => res.json())
-    // .then(json => {
-    //   // debugger;
-    //   // sessionStorage.setItem('token', json.jwt)
-    //   // sessionStorage.setItem('user', json.user.username)
-    //   // console.log("user object in login fetch: ", json.user.username)
-    //   // console.log("user accounts in login fetch: ", json.error)
-    //   console.log(json)
-    //   this.setState({
-    //     accounts: [...this.state.accounts, accountObj]
-    //   })
-    // })
-    .catch(error => alert("Error adding new Account Grouping. Please try again."));
+    .then(res => res.json())
+    .then(json => {
+    
+      // sessionStorage.setItem('token', json.jwt)
+      // sessionStorage.setItem('user', json.user.username)
+      // console.log("user object in login fetch: ", json.user.username)
+      // console.log("user accounts in login fetch: ", json.error)
+      // console.log("acccount has been made:", json)
+      let acct = json
+      acct.logins = []
+      // console.log("setting logins:", json)
+      // debugger
+      this.setState({
+        accounts: [...this.state.accounts, acct]
+      })
 
+    })
+    .catch(error => alert("Error adding new Account Grouping. Please try again."));
+//  debugger;
   }
 
   deleteAccount = (deleteAccountObj) =>{
@@ -203,7 +209,7 @@ class App extends Component {
     // const decryptedString = cryptr.decrypt(encryptedString);
     // console.log(decryptedString); 
 
-    // debugger
+    
 
 
     const updatedAccounts = this.state.accounts.map((i) => {
@@ -212,13 +218,13 @@ class App extends Component {
       } 
       return i
     })
-    this.setState({
-      accounts: updatedAccounts
-    })
+    // this.setState({
+    //   accounts: updatedAccounts
+    // })
+// debugger
 
 
-
-    // console.log(addToAccountObj.logins)
+    // console.log(addToAccountObj)
 
 
     fetch(loginURL, {
@@ -237,22 +243,37 @@ class App extends Component {
         }
       })
     })
-    // .then(res => res.json())
-    // .then(json => {
-    //   sessionStorage.setItem('token', json.jwt)
-    //   // this.setState({
-    //   //   // token: json.jwt,
-    //   //   // user: json.user.username,
-    //   //   // user_id: json.user.id,
-    //   //   // password: json.user.password,
-    //   //   // email: json.user.email,
-    //   //   accounts: json.user.accounts
-    //   // })
+    .then(res => res.json())
+    .then(json => {
+      // sessionStorage.setItem('token', json.jwt)
+      // this.setState({
+      //   // token: json.jwt,
+      //   // user: json.user.username,
+      //   // user_id: json.user.id,
+      //   // password: json.user.password,
+      //   // email: json.user.email,
+      //   accounts: json.user.accounts
+      // })
+      // console.log("creds added",json)
+      // const updatedAccounts = this.state.accounts.map((i) => {
+      //   if (i.account_name === addToAccountObj.account_name) {
+      //     i.logins = [...i.logins, {username: username, saved_password: encryptedString, account_id: addToAccountObj.id}]
+      //   } 
+      //   return i
+      // })
+      this.setState({
+        accounts: updatedAccounts
+      })
+    })
+    .catch(error =>  alert("Error adding new credentials to account grouping. Please refresh and try again."));
+
+
+    // const updatedAccounts = this.state.accounts.map((i) => {
+    //   if (i.account_name === addToAccountObj.account_name) {
+    //     i.logins = [...i.logins, {username: username, saved_password: encryptedString, account_id: i.id}]
+    //   } 
+    //   return i
     // })
-    .catch(error => console.error('Error:', error));
-
-
-
 
     
   }
@@ -324,7 +345,7 @@ class App extends Component {
 
     
 
-    console.log("new account that is filtered:", newAccount)
+    // console.log("new account that is filtered:", newAccount)
     if(!filteredBy){ //  || newAccount[0].logins.length === 0 || newAccount[0] === [] 
       this.setState({
         filteredAccounts: []
@@ -333,7 +354,7 @@ class App extends Component {
     }else{
       this.setState({
         filteredAccounts: newAccount
-      }, () => console.log("FILTERED ACCOUNTS:",this.state.filteredAccounts))
+      })
     }
     // console.log("new account2 after if/else", newAccount)
 
