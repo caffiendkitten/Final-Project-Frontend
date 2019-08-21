@@ -19,12 +19,15 @@ cryptr = new Cryptr('Akeytobemoved');
 
 
   render () {
+    // console.log("Decrypted on retrieval ", encryptedString); 
+
 // console.log(this.props.account)
 // debugger;
     return <li 
             key={this.props.logins.id} 
             className="account-list-li"
             >
+              {console.log("Decrypted on retrieval ", this.cryptr.decrypt(this.props.logins.saved_password))}
               Username: {this.props.logins.username}, Password: {this.cryptr.decrypt(this.props.logins.saved_password)}
             <span id="button_floater">
                 {/* <button onClick={() => this.updateCreds(this.props.logins)}>

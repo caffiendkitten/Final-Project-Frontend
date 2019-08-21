@@ -8,7 +8,6 @@ class CheckPassword extends React.Component {
     constructor() {
         super();
         this.state = {
-          // minlength: 8,
           password: ""
         }
     }
@@ -21,25 +20,21 @@ class CheckPassword extends React.Component {
     render() {
       const { password } = this.state;
       return (
-        <div className="password-check">
-          <h2>
-            Start typing to check if your password has been compromised. <a
-                        href="https://haveibeenpwned.com/FAQs#DataSource"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Learn more
-                      </a>
-          </h2>
-          <div>
+        <div  className="navbar">
+          <h3>
+            Start typing to check if your password has been compromised. 
+          </h3>
+          <div >
             <input
               type="text"
               onChange={this.handleChange}
               value={password}
               style={{ width: "100%" }}
+              // className="checker-size" 
+              placeholder="Enter password to check here"
             />
           </div>
-          <div className="checker">
+          <div className="checker-size" >
             <HIBPPasswordChecker password={password}>
               {({ initial, loading, error, pwned, count }) => {
                 if (initial) return null;
