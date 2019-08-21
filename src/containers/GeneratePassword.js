@@ -44,35 +44,26 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div style={{marginTop: 20}}>
+      <div className="navbar" >
+            <h3>
+              Generate a secure password
+            </h3>        
+          <div style={{marginTop: 20}}>
           <section>
-            <header>
-              <div className="row">
-                <div className="col">
-                  <h1 className=" terminal-prompt">
-                    Generate a secure password
-                  </h1>
-                
-                </div>
-              </div>
-            </header>
 
             <div>
               <label >
-              <input
-              className="input-container"
-                id="input"
-                name="password"
-                type="text"
-                readOnly
-                value={this.state.pwd}
-                min="1"
-                max="64"
-                
-                onChange={ e => this.setLength(e.target) }
-
-              />
+                <input
+                className="input-container"
+                  id="input"
+                  name="password"
+                  type="text"
+                  readOnly
+                  value={this.state.pwd}
+                  min="1"
+                  max="64"
+                  onChange={ e => this.setLength(e.target) }
+                />
               </label>
 
               <div className="input-container">
@@ -85,7 +76,7 @@ class App extends Component {
           <section>
 
             <header>
-              <h3>Customize your password</h3>
+              <h4>Customize your password:</h4>
             </header>
 
             <fieldset>
@@ -115,7 +106,7 @@ class App extends Component {
                     </label><br></br>
 
                     <label className="checkbox-container">
-                      Numeric 0-9
+                      Numeric 0-9 (default)
                       <input
                         type="checkbox"
                         checked={this.state.numeric}
@@ -142,13 +133,14 @@ class App extends Component {
                   <div className="form-group">
                     <div className="row">
                       <div className="col">
-                        <label htmlFor="email">Password Length:</label>
+                        <label htmlFor="email">Current Password Length:</label>
                       </div>
-                      <div className="col">
+                      {/* <div className="col"> */}
                         <input
-                          type="number"
+                          type="text"
                           min="8"
                           max="40"
+                          readOnly
                           style={{ width: 65 }}
                           value={this.state.length}
                           onChange={e => {
@@ -156,7 +148,7 @@ class App extends Component {
                             this.generatePwd();
                           }}
                         />
-                      </div>
+                      {/* </div> */}
                     </div>
                     &nbsp;
                     <div className="slider-container">

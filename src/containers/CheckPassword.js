@@ -1,55 +1,74 @@
 import React from 'react'
+import HIBPPasswordChecker from "react-have-i-been-pwned";
 
 
 
 
 class CheckPassword extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-          minlength: 8,
-          pwpasswordd: "",
+          password: ""
         }
     }
-    handleChange(e) {
-        const { name, checked } = e.target;
-        this.setState({
-          [name]: checked
-        });
-        // this.generatePwd();
+    handleChange = ev => {
+      this.setState({
+        password: ev.target.value
+      });
+    };
+
+    render() {
+      const { password } = this.state;
+      return (
+        <div  className="navbar">
+          <h3>
+            Start typing to check if your password has been compromised. 
+          </h3>
+          <div >
+            <input
+              type="text"
+              onChange={this.handleChange}
+              value={password}
+              style={{ width: "100%" }}
+              // className="checker-size" 
+              placeholder="Enter password to check here"
+            />
+          </div>
+          <div className="checker-size" >
+            <HIBPPasswordChecker password={password}>
+              {({ initial, loading, error, pwned, count }) => {
+                if (initial) return null;
+                if (loading) return "Checking the security of this password...";
+                if (error) return `error: ${error}`;
+                if (!pwned)
+                  return (
+                    <>
+                      This password is safe to use and appeared in no known data
+                      breaches.{" "}
+                      <a
+                        href="https://haveibeenpwned.com/FAQs#DataSource"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Learn more
+                      </a>
+                      .
+                    </>
+                  );
+                if (pwned)
+                  return (
+                    <>
+                      <strong>This password isn't safe to use</strong> and
+                      appeared in {count.toLocaleString()} known data breaches.
+                      You can still use it, but you probably shouldn't...{" "}
+                    </>
+                  );
+              }}
+            </HIBPPasswordChecker>
+          </div>
+        </div>
+      );
     }
-
-    handleClick = () => {
-        console.log("hit")
-    }
-
-    render(){
-        return <div>
-            <h2>Type in current password to see if its been found on HaveIBeenPwned.</h2>
-            <div className="form-group">
-                    <label className="checkbox-container">
-                      
-                      <input
-                        type="text"
-                        name="passwordCheck"
-                        onChange={e => this.handleChange(e)}
-                      />
-                      <span className="checkmark" />
-                    </label><br></br>
-
-                    <button
-                    className="btn  btn-primary"
-                    onClick={() => {
-                      this.handleClick();
-                    }}
-                  >
-                    Generate
-                  </button>
-            </div>
-            
-            
-        </div>   
-    }    
 }
         
 export default CheckPassword

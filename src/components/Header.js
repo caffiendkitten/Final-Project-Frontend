@@ -48,10 +48,16 @@ class Header extends Component {
                                                             />} ></Route>
                 <Route path ="/about" exact render={props => <About  />} ></Route>
                 <Route path ="/" exact render={props => <Home 
+                                                            username={this.props.username}
+                                                            password={this.props.password}
+                                                            addToAccount={this.props.addToAccount}
+                                                            deleteFromAccount={this.props.deleteFromAccount}
                                                             createAccount={this.props.createAccount} 
                                                             deleteAccount={this.props.deleteAccount} 
                                                             user={this.props.user} 
                                                             accounts={this.props.accounts} 
+                                                            filterAccounts={this.props.filterAccounts}
+                                                            filteredAccounts={this.props.filteredAccounts}
                                                             />} ></Route>
                 {/* <Route path ="/" exact render={props => <Login  />} ></Route> */}
             </Router>
