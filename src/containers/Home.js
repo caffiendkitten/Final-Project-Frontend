@@ -18,10 +18,10 @@ class Home extends React.Component {
 onAddAccount = (event) => {
     event.preventDefault()
     if (this.state.account_name !== ""){
-      console.log("not empty")
+      // console.log("not empty")
       this.props.createAccount(this.state)
     } else {
-      console.log("empty")
+      // console.log("empty")
       alert("Please Enter an Account Name")
     }
 
@@ -60,7 +60,7 @@ handleFilter = (filteredBy) => {
 
 displayAccounts = () => {
   let accountsToDisplay = this.props.filteredAccounts.length === 0 ? this.props.accounts : this.props.filteredAccounts;
-  console.log(accountsToDisplay)
+  // console.log(accountsToDisplay)
   return accountsToDisplay.map((account, idx) => {
     return <li key={idx} className="account-list" >
         <span className="account-name"><h1>{account.account_name}</h1></span>
