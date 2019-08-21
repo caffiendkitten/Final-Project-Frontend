@@ -13,6 +13,7 @@ const loginURL = "http://localhost:3000/api/v1/logins"
 
 
 const Cryptr = require('cryptr');
+const key = ''
 export const cryptr = new Cryptr('Akeytobemoved');
 // console.log("token at app:", sessionStorage.getItem('token'))
 

@@ -35,6 +35,9 @@
 h1 {
   text-align: center;
 }
+h3 {
+  text-align: center;
+}
 .form-control {
   width: 50%;
   
@@ -55,8 +58,8 @@ form {
 /* ==Password Checker Style== Start */
 .password-check {
   font-family: "Open Sans", sans-serif;
-  max-width: 500px;
-  width: 50%;
+  /* max-width: 500px; */
+  /* width: 50%; */
   margin: 0 auto;
 }
 
@@ -66,19 +69,39 @@ form {
 
 .checker {
   text-align: justify;
-  min-height: 150px;
+  /* min-height: 150px; */
+}
+.checker-size{
+  /* text-align: center; */
+  /* min-height: 150px; */
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
 }
 /* ==Password Checker Style== Stop */
 
 
 /* ==APP Level Style== Start */
 /* /*  */
+
 .container {
   width: 75%;
   display: grid;
   grid-template-columns: 50% 50%;
 } 
-/* ==APP Level Style== Stop */
+
+.navbar{
+  width: 75%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+.wrapper{
+  max-width: 720px;
+
+}
 .row {
   width: 50%;
 }
@@ -89,6 +112,7 @@ form {
 .col signup{
   float:right;
 }
+/* ==APP Level Style== Stop */
 
 
 /* ==HEADER== Start */
@@ -173,10 +197,6 @@ form {
   float: none
 
 }
-/* 
-.account-list-li {
-} */
-
 
 /* ==Account Lister== Stop */
 

@@ -6,7 +6,7 @@ import EditAccountCreds from "../containers/EditAccountCreds"
 
 class Home extends React.Component {
   state ={
-    account_name: [],
+    account_name: '',
     username: "",
     password: "",
     logins: []
@@ -15,7 +15,14 @@ class Home extends React.Component {
 
 onAddAccount = (event) => {
     event.preventDefault()
-    this.props.createAccount(this.state)
+    if (this.state.account_name !== ""){
+      console.log("not empty")
+      this.props.createAccount(this.state)
+    } else {
+      console.log("empty")
+      alert("Please Enter an Account Name")
+    }
+
 }
 
 handleChange = (event) => {
@@ -47,7 +54,7 @@ addToAccount = (acctObj, username, password) => {
 
 
   render () {
-    return (<div align="center">
+    return (<div className="navbar" align="center">
       <h3>Welcome back {this.props.user}</h3>
       {/* <Container> */}
       <div className="account-list">
@@ -57,6 +64,7 @@ addToAccount = (acctObj, username, password) => {
           placeholder="Search Account Groups" 
         />
         <button>Search</button>
+        <button>Show All</button>
         <br></br>
         <input
           type="text" 
