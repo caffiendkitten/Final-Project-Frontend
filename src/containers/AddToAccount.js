@@ -3,7 +3,10 @@ import React from 'react';
 class AddToAccount extends React.Component {
 
   render () {
-console.log("added to list:",this.props.addToAccountObj)
+// console.log("added to list:",this.props.addToAccountObj)
+
+
+
     return <li className="account-list-li">
         {/* Username: {this.props.logins.username}, 
         Password: {this.props.logins.saved_password} */}

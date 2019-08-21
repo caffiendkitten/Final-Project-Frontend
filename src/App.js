@@ -5,6 +5,7 @@ import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
 import { Container,  Col } from 'react-bootstrap';
 // import AddToAccount from './containers/AddToAccount'
+// import Search from './containers/Search'
 
 const userURL = "http://localhost:3000/api/v1/login"
 const signupURL = "http://localhost:3000/api/v1/users"
@@ -13,7 +14,7 @@ const loginURL = "http://localhost:3000/api/v1/logins"
 
 
 const Cryptr = require('cryptr');
-const key = ''
+// const key = ''
 export const cryptr = new Cryptr('Akeytobemoved');
 // console.log("token at app:", sessionStorage.getItem('token'))
 
@@ -26,7 +27,8 @@ class App extends Component {
     password: "",
     email: '',
     accounts: [],
-    username: ""
+    username: "",
+    filteredAccounts: []
   }
   componentDidMount = () => {
     sessionStorage.clear()
@@ -144,7 +146,7 @@ class App extends Component {
     //     accounts: [...this.state.accounts, accountObj]
     //   })
     // })
-    .catch(error => console.error('Error:', error));
+    .catch(error => alert("Error adding new Account Grouping. Please try again."));
 
   }
 
@@ -313,6 +315,31 @@ class App extends Component {
     
   }
 
+  filterAccounts = (filteredBy) => {
+    console.log("Word to filter By:", filteredBy)
+    
+    let newAccount = this.state.accounts.filter(term => {
+      return term.account_name.toUpperCase().includes(filteredBy.toUpperCase())
+    })
+
+    
+
+    console.log("new account that is filtered:", newAccount)
+    if(!filteredBy){ //  || newAccount[0].logins.length === 0 || newAccount[0] === [] 
+      this.setState({
+        filteredAccounts: []
+      }) //, () => alert("No Account Grouping Exists with This Name. Please Check Spelling."))
+      // alert("No Account Grouping Exists with This Name. Please Check Spelling.");
+    }else{
+      this.setState({
+        filteredAccounts: newAccount
+      }, () => console.log("FILTERED ACCOUNTS:",this.state.filteredAccounts))
+    }
+    // console.log("new account2 after if/else", newAccount)
+
+    // console.log("the filtered accounts:", this.state.filteredAccounts) //
+  }
+
 
   render () {
     return <Fragment>
@@ -329,7 +356,10 @@ class App extends Component {
           createAccount={this.createAccount}
           deleteAccount={this.deleteAccount}   
           addToAccount={this.addToAccount}     
-          deleteFromAccount={this.deleteFromAccount}   
+          deleteFromAccount={this.deleteFromAccount}  
+          filterAccounts={this.filterAccounts}
+          filteredAccounts = {this.state.filteredAccounts}
+          
           />
         </div>
       :<div align="center">

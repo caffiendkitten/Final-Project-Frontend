@@ -56,6 +56,8 @@ class Header extends Component {
                                                             deleteAccount={this.props.deleteAccount} 
                                                             user={this.props.user} 
                                                             accounts={this.props.accounts} 
+                                                            filterAccounts={this.props.filterAccounts}
+                                                            filteredAccounts={this.props.filteredAccounts}
                                                             />} ></Route>
                 {/* <Route path ="/" exact render={props => <Login  />} ></Route> */}
             </Router>
