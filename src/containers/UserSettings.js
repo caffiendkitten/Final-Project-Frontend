@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 
 
 class UserSettings extends React.Component {
@@ -28,14 +28,19 @@ class UserSettings extends React.Component {
 
 
     editEmail = () => {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
-            this.props.handleSignUp(this.state)
-        }else {
-        this.setState({
-            error: "You have entered an invalid email address. Can only contain letter, '@', and '.'."
-        })
-        alert(this.state.error)
-    }
+        console.log("new:", this.state.updateEmail)
+        console.log("old:", this.props.email)
+        if(this.state.updateEmail != this.props.email){
+            console.log("newemail is,", this.state.updateEmail)
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
+                this.props.handleSignUp(this.state)
+            }else {
+            this.setState({
+                error: "You have entered an invalid email address. <br/> Can only contain letter, '@', and '.'."
+            })
+            alert(this.state.error)
+            }
+        }
 
         console.log("hit email", this.state.updateEmail)
     }
@@ -46,14 +51,14 @@ class UserSettings extends React.Component {
 
         return <div  className="navbar" >
             <h3>User Settings for {this.props.user}</h3>
-
-            <input 
+            <p>{this.props.user}</p>
+            {/* <input 
                 placeholder={this.props.user} 
                 onChange={this.handleChange}
                 name="updateUser" 
                 type="text"
                 />
-            <button onClick={this.editUser}>Update Username</button>
+            <button onClick={this.editUser}>Update Username</button> */}
         <br></br>
             <input 
                 placeholder={this.props.email} 

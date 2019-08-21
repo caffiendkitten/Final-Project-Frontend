@@ -23,21 +23,31 @@ cryptr = new Cryptr('Akeytobemoved');
 
 // console.log(this.props.account)
 // debugger;
-    return <li 
-            key={this.props.logins.id} 
-            className="account-list-li"
-            >
-              {console.log("Decrypted on retrieval ", this.cryptr.decrypt(this.props.logins.saved_password))}
-              Username: {this.props.logins.username}, Password: {this.cryptr.decrypt(this.props.logins.saved_password)}
-            <span id="button_floater">
-                {/* <button onClick={() => this.updateCreds(this.props.logins)}>
-                Update
-                </button> */}
-                <button  onClick={() => this.deleteFromAccount(this.props.logins)}>
-                Delete
-                </button>
-            </span> 
-        </li>
+    return (
+    
+    
+      <li 
+              key={this.props.logins.id} 
+              className="account-list-li"
+              >
+                
+                
+                {/* {console.log("Decrypted on retrieval ", this.cryptr.decrypt(this.props.logins.saved_password))} */}
+
+
+
+
+                Username: {this.props.logins.username}, Password: {this.cryptr.decrypt(this.props.logins.saved_password)}
+              <span id="button_floater">
+                  {/* <button onClick={() => this.updateCreds(this.props.logins)}>
+                  Update
+                  </button> */}
+                  <button  onClick={() => this.deleteFromAccount(this.props.logins)}>
+                  Delete
+                  </button>
+              </span> 
+          </li>
+    )
   }
 }
 
