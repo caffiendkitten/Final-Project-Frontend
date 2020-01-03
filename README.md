@@ -1,8 +1,11 @@
 # Password Manager Frontend
 
 ## Overview
-This is the Frontend for my final project at Flatiron School. 
+This is the Backend for my final project at Flatiron School. 
 This project was inspired for my passion for information security and my interest in software engineering and built over 2.5 weeks. 
+
+This is a password manager that will allow users to save login credentials for sites, create a unique password based on their needs, and check if a password has been found in a breach via HaveIBeenPwnd. 
+It uses Bcrypt on the user login and AES encryption on the user saved credentials.
 
 The frontend is currently hosted on Netlifly and the backend is hosted on Heroku.
 https://flatiron-passwordmanager.netlify.com/ is the live project for your entertainment.
@@ -23,8 +26,11 @@ https://flatiron-passwordmanager.netlify.com/ is the live project for your enter
 ## Setup
  - Get the backend is cloned and running (see backend for instructions there) 
  - Ensure that your fork and clone this repository
- - run `npm start` and go to the localhost in your browser
- 
+ - Run `npm install` to get the npm package installed or uptodate
+ - Run `npm start` and go to the localhost in your browser
+  - If you are running the backend API at the same time you will need to open http://localhost:3001 to view it in the browser, or specify a specific port for the json server to run on and the app to run on as they cannot run on the same port.
+
+
 ## Streatch Goals/ Ideas to work on
 1. Allow users to copy their created unique password into a new Account Group
 2. Work on ensuring users cannot input malicious code
