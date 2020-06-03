@@ -30,7 +30,7 @@
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "actor 0"
+                  "text": "Browser"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -51,12 +51,13 @@
               "id": "ac7fb268-b637-4c53-a45b-e2953d74a327",
               "z": 2,
               "hasOpenThreats": false,
+              "storesCredentials": true,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "store 1"
+                  "text": "Web App Config"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -77,12 +78,15 @@
               "id": "2139085a-e7c9-4799-81de-2eb3c410aa84",
               "z": 3,
               "hasOpenThreats": false,
+              "isALog": true,
+              "storesCredentials": true,
+              "isEncrypted": true,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "store 2"
+                  "text": "Database"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -103,12 +107,13 @@
               "id": "54b6edfa-27a9-401d-b63f-ee4136018f0c",
               "z": 4,
               "hasOpenThreats": false,
+              "storesCredentials": true,
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "store 3"
+                  "text": "Worker Config"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -134,7 +139,7 @@
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "store 4"
+                  "text": "Message Query"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -155,12 +160,13 @@
               "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08",
               "z": 6,
               "hasOpenThreats": false,
+              "privilegeLevel": "executionContext =Limited",
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "process 5"
+                  "text": "Web\nApplication"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -181,12 +187,13 @@
               "id": "cc08bec6-5138-4939-ba6a-89e0783c9728",
               "z": 7,
               "hasOpenThreats": false,
+              "privilegeLevel": "executionContext =Limited",
               "attrs": {
                 ".element-shape": {
                   "class": "element-shape hasNoOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "process 6"
+                  "text": "Background\nWorker Process"
                 },
                 ".element-text": {
                   "class": "element-text hasNoOpenThreats isInScope"
@@ -308,7 +315,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 11",
+                      "text": "Web Request",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -317,6 +324,9 @@
               ],
               "z": 12,
               "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -350,7 +360,7 @@
                   },
                   "attrs": {
                     "text": {
-                      "text": "flow 12",
+                      "text": "Web Response",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -359,6 +369,8 @@
               ],
               "z": 13,
               "hasOpenThreats": false,
+              "protocol": "HTTP",
+              "isPublicNetwork": true,
               "attrs": {
                 ".marker-target": {
                   "class": "marker-target hasNoOpenThreats isInScope"
@@ -393,7 +405,7 @@
                   },
                   "attrs": {
                     "text": {
-                      "text": "flow 13",
+                      "text": "Put Message",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -401,7 +413,18 @@
                 }
               ],
               "z": 14,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -425,7 +448,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 14",
+                      "text": "Read Web App Config",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -433,7 +456,18 @@
                 }
               ],
               "z": 15,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isPublicNetwork": true,
+              "isEncrypted": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -458,7 +492,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 15",
+                      "text": "Queries",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -466,7 +500,18 @@
                 }
               ],
               "z": 16,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -485,7 +530,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 16",
+                      "text": "Web App Query\nResults",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -493,7 +538,18 @@
                 }
               ],
               "z": 17,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -518,7 +574,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 17",
+                      "text": "Worker Query Results",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -526,7 +582,18 @@
                 }
               ],
               "z": 18,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -546,7 +613,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 18",
+                      "text": "Message",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -554,7 +621,18 @@
                 }
               ],
               "z": 19,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -574,7 +652,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 19",
+                      "text": "Worker Queries",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -582,7 +660,18 @@
                 }
               ],
               "z": 20,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             },
             {
               "type": "tm.Flow",
@@ -602,7 +691,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "flow 20",
+                      "text": "Read Worker Config",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -610,7 +699,18 @@
                 }
               ],
               "z": 21,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "protocol": "HTTP/S",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             }
           ]
         },
