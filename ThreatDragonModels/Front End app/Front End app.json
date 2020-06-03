@@ -19,7 +19,7 @@
               },
               "position": {
                 "x": 20,
-                "y": 40
+                "y": 20
               },
               "angle": 0,
               "id": "53516e99-d0ce-42f5-a819-a345a044ab36",
@@ -62,8 +62,8 @@
                 "height": 80
               },
               "position": {
-                "x": 10,
-                "y": 380
+                "x": 50,
+                "y": 460
               },
               "angle": 0,
               "id": "ac7fb268-b637-4c53-a45b-e2953d74a327",
@@ -108,8 +108,8 @@
                 "height": 80
               },
               "position": {
-                "x": 250,
-                "y": 380
+                "x": 300,
+                "y": 480
               },
               "angle": 0,
               "id": "2139085a-e7c9-4799-81de-2eb3c410aa84",
@@ -156,8 +156,8 @@
                 "height": 80
               },
               "position": {
-                "x": 550,
-                "y": 390
+                "x": 650,
+                "y": 460
               },
               "angle": 0,
               "id": "54b6edfa-27a9-401d-b63f-ee4136018f0c",
@@ -194,8 +194,8 @@
                 "height": 80
               },
               "position": {
-                "x": 500,
-                "y": 10
+                "x": 570,
+                "y": 20
               },
               "angle": 0,
               "id": "8e53ba14-efe7-4026-abc9-84afcaab08d1",
@@ -246,8 +246,8 @@
                 "height": 100
               },
               "position": {
-                "x": 240,
-                "y": 180
+                "x": 230,
+                "y": 200
               },
               "angle": 0,
               "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08",
@@ -323,8 +323,8 @@
                 "height": 100
               },
               "position": {
-                "x": 550,
-                "y": 180
+                "x": 670,
+                "y": 200
               },
               "angle": 0,
               "id": "cc08bec6-5138-4939-ba6a-89e0783c9728",
@@ -365,8 +365,8 @@
               "type": "tm.Boundary",
               "smooth": true,
               "source": {
-                "x": 100,
-                "y": 220
+                "x": 140,
+                "y": 230
               },
               "target": {
                 "x": 350,
@@ -386,25 +386,25 @@
               "type": "tm.Boundary",
               "smooth": true,
               "source": {
-                "x": 220,
-                "y": 440
+                "x": 260,
+                "y": 520
               },
               "target": {
-                "x": 480,
-                "y": 440
+                "x": 490,
+                "y": 510
               },
               "vertices": [
                 {
-                  "x": 250,
-                  "y": 340
+                  "x": 280,
+                  "y": 420
                 },
                 {
-                  "x": 400,
-                  "y": 280
+                  "x": 370,
+                  "y": 350
                 },
                 {
-                  "x": 480,
-                  "y": 320
+                  "x": 450,
+                  "y": 360
                 }
               ],
               "id": "34334f7a-caac-4a1a-8e37-4a0bded09972",
@@ -415,17 +415,17 @@
               "type": "tm.Boundary",
               "smooth": true,
               "source": {
-                "x": 410,
+                "x": 500,
                 "y": 10
               },
               "target": {
-                "x": 490,
-                "y": 140
+                "x": 530,
+                "y": 130
               },
               "vertices": [
                 {
-                  "x": 420,
-                  "y": 110
+                  "x": 480,
+                  "y": 90
                 }
               ],
               "id": "97e4474e-f62f-4767-8d4e-ae0688e560b8",
@@ -436,16 +436,16 @@
               "type": "tm.Boundary",
               "smooth": true,
               "source": {
-                "x": 510,
-                "y": 190
+                "x": 620,
+                "y": 210
               },
               "target": {
-                "x": 720,
-                "y": 140
+                "x": 770,
+                "y": 130
               },
               "vertices": [
                 {
-                  "x": 580,
+                  "x": 640,
                   "y": 130
                 }
               ],
@@ -457,17 +457,15 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 180,
-                "y": 80
+                "id": "53516e99-d0ce-42f5-a819-a345a044ab36"
               },
               "target": {
-                "x": 300,
-                "y": 170
+                "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
               },
               "vertices": [
                 {
-                  "x": 290,
-                  "y": 100
+                  "x": 250,
+                  "y": 90
                 }
               ],
               "id": "889c3aa8-75a2-4ef8-b1fd-b01df6826f54",
@@ -508,8 +506,8 @@
               },
               "vertices": [
                 {
-                  "x": 130,
-                  "y": 210
+                  "x": 180,
+                  "y": 160
                 }
               ],
               "id": "72259de6-ba2e-4a07-951c-50e5e8f39d56",
@@ -545,8 +543,7 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 360,
-                "y": 160
+                "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
               },
               "target": {
                 "id": "8e53ba14-efe7-4026-abc9-84afcaab08d1"
@@ -601,16 +598,15 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 90,
-                "y": 360
+                "id": "ac7fb268-b637-4c53-a45b-e2953d74a327"
               },
               "target": {
                 "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
               },
               "vertices": [
                 {
-                  "x": 130,
-                  "y": 290
+                  "x": 180,
+                  "y": 340
                 }
               ],
               "id": "57bea55c-842f-47e3-824d-24a88c1cd335",
@@ -644,17 +640,15 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 270,
-                "y": 280
+                "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
               },
               "target": {
-                "x": 270,
-                "y": 370
+                "id": "2139085a-e7c9-4799-81de-2eb3c410aa84"
               },
               "vertices": [
                 {
                   "x": 270,
-                  "y": 340
+                  "y": 370
                 }
               ],
               "id": "2817a424-24f1-4b4a-8b73-4076ccc5b992",
@@ -688,17 +682,24 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 350,
-                "y": 370
+                "id": "2139085a-e7c9-4799-81de-2eb3c410aa84"
               },
               "target": {
                 "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
               },
-              "vertices": [],
+              "vertices": [
+                {
+                  "x": 340,
+                  "y": 360
+                }
+              ],
               "id": "fa27ebc0-22b5-454a-8daf-f6e75b8347fe",
               "labels": [
                 {
-                  "position": 0.5,
+                  "position": {
+                    "distance": 0.8137992737226659,
+                    "offset": -6.957303491590444
+                  },
                   "attrs": {
                     "text": {
                       "text": "Web App Query\nResults",
@@ -709,16 +710,26 @@
                 }
               ],
               "z": 17,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "protocol": "HTTP/S",
               "isEncrypted": true,
               "isPublicNetwork": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "title": "Server Name and Type",
+                  "description": "The server responds with the the proxy library and version",
+                  "mitigation": "Remove from response as it's not necessary or encrypt."
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -726,12 +737,10 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 380,
-                "y": 370
+                "id": "2139085a-e7c9-4799-81de-2eb3c410aa84"
               },
               "target": {
-                "x": 550,
-                "y": 240
+                "id": "cc08bec6-5138-4939-ba6a-89e0783c9728"
               },
               "vertices": [
                 {
@@ -780,18 +789,19 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 550,
-                "y": 90
+                "id": "8e53ba14-efe7-4026-abc9-84afcaab08d1"
               },
               "target": {
-                "x": 600,
-                "y": 180
+                "id": "cc08bec6-5138-4939-ba6a-89e0783c9728"
               },
               "vertices": [],
               "id": "3f4c9ab1-4bf7-4be1-b702-92c66d1c1f13",
               "labels": [
                 {
-                  "position": 0.5,
+                  "position": {
+                    "distance": 0.7971393983879062,
+                    "offset": -30.122430002090166
+                  },
                   "attrs": {
                     "text": {
                       "text": "Message",
@@ -829,14 +839,17 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 570,
-                "y": 270
+                "id": "cc08bec6-5138-4939-ba6a-89e0783c9728"
               },
               "target": {
-                "x": 420,
-                "y": 400
+                "id": "2139085a-e7c9-4799-81de-2eb3c410aa84"
               },
-              "vertices": [],
+              "vertices": [
+                {
+                  "x": 550,
+                  "y": 310
+                }
+              ],
               "id": "c3048601-6dd3-402c-ac65-d949a8f8c115",
               "labels": [
                 {
@@ -868,12 +881,10 @@
               "type": "tm.Flow",
               "smooth": true,
               "source": {
-                "x": 680,
-                "y": 380
+                "id": "54b6edfa-27a9-401d-b63f-ee4136018f0c"
               },
               "target": {
-                "x": 630,
-                "y": 280
+                "id": "cc08bec6-5138-4939-ba6a-89e0783c9728"
               },
               "vertices": [],
               "id": "0b973d9c-169c-433d-b659-73d41c5f07fd",
@@ -902,12 +913,211 @@
                   "class": "connection hasNoOpenThreats isInScope"
                 }
               }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 10,
+                "y": 240
+              },
+              "angle": 0,
+              "id": "7207ed70-5a24-4d0b-8c06-afe7a3d0d5bd",
+              "z": 22,
+              "hasOpenThreats": false,
+              "outOfScope": true,
+              "reasonOutOfScope": "This API is not ours and thus outof scope.",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isOutOfScope"
+                },
+                "text": {
+                  "text": "External API"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "53516e99-d0ce-42f5-a819-a345a044ab36"
+              },
+              "target": {
+                "x": 30,
+                "y": 270
+              },
+              "vertices": [
+                {
+                  "x": 20,
+                  "y": 150
+                }
+              ],
+              "id": "aeae0c79-05b8-4078-8dca-c31f2c6787a9",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6398312158933198,
+                    "offset": -29.790923390525617
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "API Request",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 23,
+              "hasOpenThreats": false,
+              "isPublicNetwork": true,
+              "outOfScope": true,
+              "reasonOutOfScope": "This API is not ours and thus outof scope.",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isOutOfScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "x": 60,
+                "y": 260
+              },
+              "target": {
+                "id": "53516e99-d0ce-42f5-a819-a345a044ab36"
+              },
+              "vertices": [
+                {
+                  "x": 100,
+                  "y": 180
+                }
+              ],
+              "id": "982fe269-fa72-4190-a7bf-0eab005ab9d2",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6884405777837826,
+                    "offset": -2.2049883242137343
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "API Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 24,
+              "hasOpenThreats": false,
+              "outOfScope": true,
+              "reasonOutOfScope": "This API is not ours and thus outof scope.",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isOutOfScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "x": 100,
+                "y": 310
+              },
+              "target": {
+                "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
+              },
+              "vertices": [],
+              "id": "a9c6f672-5551-4497-84d3-6a64c4848d07",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.3666760967095431,
+                    "offset": 6.130857389605352
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "API Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 25,
+              "hasOpenThreats": false,
+              "outOfScope": true,
+              "reasonOutOfScope": "This API is not ours and thus outof scope.",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isOutOfScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08"
+              },
+              "target": {
+                "x": 100,
+                "y": 280
+              },
+              "vertices": [],
+              "id": "d5abf514-f7d1-4e0d-88c7-61beeb80615a",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.640032180853066,
+                    "offset": 12.515742041354589
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "API Request",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 26,
+              "hasOpenThreats": false,
+              "outOfScope": true,
+              "reasonOutOfScope": "This API is not ours and thus outof scope.",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isOutOfScope"
+                }
+              }
             }
           ]
         },
         "size": {
           "height": 590,
-          "width": 790
+          "width": 810
         }
       }
     ]
