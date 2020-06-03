@@ -24,16 +24,34 @@
               "angle": 0,
               "id": "53516e99-d0ce-42f5-a819-a345a044ab36",
               "z": 1,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "ruleId": "b2a6d40d-d3f8-4750-8e4d-c02cc84b13dc",
+                  "title": "Generic spoofing threat",
+                  "type": "Spoofing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic spoofing threat"
+                },
+                {
+                  "ruleId": "87bc37e2-798e-4d68-bb96-feb1da26da48",
+                  "title": "Generic repudiation threat",
+                  "type": "Repudiation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic repudiation threat"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Browser"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -50,17 +68,36 @@
               "angle": 0,
               "id": "ac7fb268-b637-4c53-a45b-e2953d74a327",
               "z": 2,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "storesCredentials": true,
+              "threats": [
+                {
+                  "ruleId": "13000296-b17d-4b72-9cc4-f5cc33f80e4c",
+                  "title": "Credentials should be encrypted",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The Web Application Config stores credentials used  by the Web App to access the message queue. These could be stolen by an attacker and used to read confidential data or place poison message on the queue.",
+                  "mitigation": "The Message Queue credentials should be encrypted."
+                },
+                {
+                  "ruleId": "edb05d76-a695-455f-947b-7d67b78bc31d",
+                  "title": "Generic DoS threat",
+                  "type": "Denial of service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic DoS threat"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Web App Config"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -77,19 +114,38 @@
               "angle": 0,
               "id": "2139085a-e7c9-4799-81de-2eb3c410aa84",
               "z": 3,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": true,
               "storesCredentials": true,
               "isEncrypted": true,
+              "threats": [
+                {
+                  "ruleId": "13000296-b17d-4b72-9cc4-f5cc33f80e4c",
+                  "title": "Credential theft",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "An attacker could obtain the DB credentials ans use them to make unauthorised queries.",
+                  "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Unauthorised access",
+                  "type": "Information disclosure",
+                  "description": "An attacker could make an query call on the DB,",
+                  "mitigation": "Require all queries to be authenticated."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Database"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -106,17 +162,28 @@
               "angle": 0,
               "id": "54b6edfa-27a9-401d-b63f-ee4136018f0c",
               "z": 4,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "storesCredentials": true,
+              "threats": [
+                {
+                  "ruleId": "13000296-b17d-4b72-9cc4-f5cc33f80e4c",
+                  "title": "Accessing DB credentials",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "The Background Worker configuration stores the credentials used by the worker to access the DB. An attacker could compromise the Background Worker and get access to the DB credentials.",
+                  "mitigation": "Encrypt the DB credentials in the configuration file.\n\nExpire and replace the DB credentials regularly."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Worker Config"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -133,16 +200,42 @@
               "angle": 0,
               "id": "8e53ba14-efe7-4026-abc9-84afcaab08d1",
               "z": 5,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "Message secrecy",
+                  "description": "The data flow between the Web Application and the Background Worker is not point-to-point and therefore end-to-end secrecy cannot be provided at the transport layer. Messages could be read by an attacker at rest in the Message Queue.",
+                  "type": "Information disclosure",
+                  "mitigation": "Use message level encryption for high sensitivity data (e.g. security tokens) in messages."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Messages on the queue could be tampered with, causing incorrect processing by the Background Worker.",
+                  "mitigation": "Sign all queue messages at the Web Server. Validate the message signature at the Background Worker and reject any message with a missing or invalid signature. Log any failed messages.",
+                  "type": "Tampering",
+                  "title": "Message tampering"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "title": "Fake messages could be placed on the queue",
+                  "description": "An attacker could put a fake message on queue, causing the Background Worker to do incorrect processing.",
+                  "mitigation": "Restrict access to the queue to the IP addresses of the Web Server and Background Worker.\n\nImplement authentication on the queue endpoint."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Message Query"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -159,17 +252,67 @@
               "angle": 0,
               "id": "683a2b12-7d38-4361-9c54-8d76a9fd5c08",
               "z": 6,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "privilegeLevel": "executionContext =Limited",
+              "threats": [
+                {
+                  "ruleId": "b2a6d40d-d3f8-4750-8e4d-c02cc84b13dc",
+                  "title": "Generic spoofing threat",
+                  "type": "Spoofing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic spoofing threat"
+                },
+                {
+                  "ruleId": "4adaa48a-0345-4533-a189-64c98c4420dd",
+                  "title": "Generic tampering threat",
+                  "type": "Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic tampering threat"
+                },
+                {
+                  "ruleId": "87bc37e2-798e-4d68-bb96-feb1da26da48",
+                  "title": "Generic repudiation threat",
+                  "type": "Repudiation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic repudiation threat"
+                },
+                {
+                  "ruleId": "13000296-b17d-4b72-9cc4-f5cc33f80e4c",
+                  "title": "Generic informtion disclosure threat",
+                  "type": "Information disclosure",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic information disclosure threat"
+                },
+                {
+                  "ruleId": "edb05d76-a695-455f-947b-7d67b78bc31d",
+                  "title": "Generic DoS threat",
+                  "type": "Denial of service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic DoS threat"
+                },
+                {
+                  "ruleId": "c1377855-ea20-4c97-8861-f95c364fb8d2",
+                  "title": "Generic elevation threat",
+                  "type": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic elevation threat"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Web\nApplication"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -186,17 +329,35 @@
               "angle": 0,
               "id": "cc08bec6-5138-4939-ba6a-89e0783c9728",
               "z": 7,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "privilegeLevel": "executionContext =Limited",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Poison messages 1",
+                  "type": "Denial of service",
+                  "description": "An attacker could generate a malicious message that the Background Worker cannot process.",
+                  "mitigation": "Implement a poison message queue where messages are placed after a fixed number of retries."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Validate the content of all messages, before processing. Reject any message that have invalid content and log the rejection. Do not log the malicious content - instead log a description of the error.",
+                  "description": "An attacker could generate a malicious message that the Background Worker cannot process.",
+                  "type": "Denial of service",
+                  "title": "Poison messages 2"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Background\nWorker Process"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -413,16 +574,26 @@
                 }
               ],
               "z": 14,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "protocol": "HTTP/S",
               "isEncrypted": true,
               "isPublicNetwork": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These requests are made over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported."
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -582,16 +753,26 @@
                 }
               ],
               "z": 18,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "protocol": "HTTP/S",
               "isEncrypted": true,
               "isPublicNetwork": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "Man in the middle attack",
+                  "type": "Information disclosure",
+                  "description": "An attacker could intercept the DB queries in transit and obtain sensitive information, such as DB credentials, query parameters or query results (is unlikely since the data flow is over a private network).",
+                  "mitigation": "Enforce an encrypted connection at the DB server"
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
@@ -621,16 +802,26 @@
                 }
               ],
               "z": 19,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "protocol": "HTTP/S",
               "isEncrypted": true,
               "isPublicNetwork": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These requests are made over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported."
+                }
+              ],
               "attrs": {
                 ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
+                  "class": "marker-target hasOpenThreats isInScope"
                 },
                 ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
+                  "class": "connection hasOpenThreats isInScope"
                 }
               }
             },
