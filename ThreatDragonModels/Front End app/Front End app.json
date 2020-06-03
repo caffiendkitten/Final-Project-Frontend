@@ -1,0 +1,15 @@
+{
+  "summary": {
+    "title": "Front End app"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "title": "all",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ]
+  }
+}
