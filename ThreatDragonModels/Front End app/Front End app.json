@@ -1,12 +1,13 @@
 {
   "summary": {
-    "title": "Front End app"
+    "title": "Front End app",
+    "owner": "DaNeil Coulthard"
   },
   "detail": {
     "contributors": [],
     "diagrams": [
       {
-        "title": "all",
+        "title": "The Application",
         "thumbnail": "./public/content/images/thumbnail.jpg",
         "id": 0,
         "diagramJson": {
@@ -1120,6 +1121,7 @@
           "width": 810
         }
       }
-    ]
+    ],
+    "reviewer": ""
   }
 }
