@@ -4,6 +4,8 @@ import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
 import { Container,  Col } from 'react-bootstrap';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+
 // import AddToAccount from './containers/AddToAccount'
 // import Search from './containers/Search'
 
@@ -367,6 +369,7 @@ class App extends Component {
 
       {sessionStorage.getItem('token') ? 
         <div className="App">
+          <AmplifySignOut />
           <Header 
           user={this.state.user} 
           email={this.state.email} 
@@ -402,4 +405,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuthenticator(App);
