@@ -390,7 +390,7 @@ class App extends Component {
         <h1>Welcome to the Password Manager</h1>
         <hr></hr>
         <p>
-          With billions of login credentials being breached at any time it becomes more and more important to secure our data. <br></br>
+          WWWWith billions of login credentials being breached at any time it becomes more and more important to secure our data. <br></br>
           The first step to security is a password manager as this will allow people to create strong and unique passwords.<br></br>
           By creating strong and unique passwords this will help keep user credentials secure even if they are part of a data breach.
         </p>
