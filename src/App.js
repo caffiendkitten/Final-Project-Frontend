@@ -4,23 +4,14 @@ import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
 import { Container,  Col } from 'react-bootstrap';
+
 // import AddToAccount from './containers/AddToAccount'
 // import Search from './containers/Search'
-
-// const userURL = "http://localhost:3000/api/v1/login"
-// const signupURL = "http://localhost:3000/api/v1/users"
-// const accountURL = "http://localhost:3000/api/v1/accounts"
-// const loginURL = "http://localhost:3000/api/v1/logins"
-
-const userURL = "https://the-trapper-keeper.herokuapp.com/api/v1/login"
-const signupURL = "https://the-trapper-keeper.herokuapp.com/api/v1/users"
-const accountURL = "https://the-trapper-keeper.herokuapp.com/api/v1/accounts"
-const loginURL = "https://the-trapper-keeper.herokuapp.com/api/v1/logins"
 
 
 const Cryptr = require('cryptr');
 // const key = ''
-export const cryptr = new Cryptr('Akeytobemoved');
+export const cryptr = new Cryptr(process.env.REACT_APP_CRYPT_KEY);
 // console.log("token at app:", sessionStorage.getItem('token'))
 
 class App extends Component {
@@ -43,7 +34,7 @@ class App extends Component {
 
 
   login = userObj => {
-    fetch(userURL, {
+    fetch(process.env.REACT_APP_userURL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +67,7 @@ class App extends Component {
     // console
 
 
-    fetch(signupURL, {
+    fetch(process.env.REACT_APP_signupURL, {
       method: 'POST', 
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -126,7 +117,7 @@ class App extends Component {
     //   accounts: [...this.state.accounts, accountObj]
     // })
     // debugger;
-    fetch(accountURL, {
+    fetch(process.env.REACT_APP_accountURL, {
       method: 'POST', 
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -172,7 +163,7 @@ class App extends Component {
         accounts: newAccounts
     })
     // // debugger;
-    fetch(`${accountURL}/${deleteAccountObj.id}`, {
+    fetch(`${process.env.REACT_APP_accountURL}/${deleteAccountObj.id}`, {
       method: 'DELETE', 
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -232,7 +223,7 @@ class App extends Component {
     // console.log(addToAccountObj)
 
 
-    fetch(loginURL, {
+    fetch(process.env.REACT_APP_loginURL, {
       method: 'POST', 
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -305,7 +296,7 @@ class App extends Component {
 // console.log(updatedAccounts)
 
     // debugger;
-    fetch(`${loginURL}/${deleteFromAccountObj.id}`, {
+    fetch(`${process.env.REACT_APP_loginURL}/${deleteFromAccountObj.id}`, {
       method: 'DELETE', 
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,

@@ -1,7 +1,7 @@
 import React from 'react';
 // import {cryptr} from '../App'
 const Cryptr = require('cryptr');
-// const cryptr = new Cryptr('Akeytobemoved');
+
 class AccountList extends React.Component {
 
 
@@ -10,8 +10,8 @@ deleteFromAccount = (deleteFromAccountObj) => {
   // console.log("hit in accountList")
   this.props.deleteFromAccount(deleteFromAccountObj)
 }
-// const Cryptr = require('cryptr');
-cryptr = new Cryptr('Akeytobemoved');
+
+cryptr = new Cryptr(process.env.REACT_APP_CRYPT_KEY);
 
 // updateCreds = (updateCred) => {
 //   console.log("found cred", updateCred)

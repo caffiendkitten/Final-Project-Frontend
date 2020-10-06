@@ -11,7 +11,7 @@ deleteFromAccount = (deleteFromAccountObj) => {
   this.props.deleteFromAccount(deleteFromAccountObj)
 }
 // const Cryptr = require('cryptr');
-cryptr = new Cryptr('Akeytobemoved');
+cryptr = new Cryptr(process.env.REACT_APP_CRYPT_KEY);
 
 // updateCreds = (updateCred) => {
 //   console.log("found cred", updateCred)

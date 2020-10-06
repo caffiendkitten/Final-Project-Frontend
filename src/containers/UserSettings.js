@@ -30,7 +30,7 @@ class UserSettings extends React.Component {
     editEmail = () => {
         console.log("new:", this.state.updateEmail)
         console.log("old:", this.props.email)
-        if(this.state.updateEmail != this.props.email){
+        if(this.state.updateEmail !== this.props.email){
             console.log("newemail is,", this.state.updateEmail)
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
                 this.props.handleSignUp(this.state)
