@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "secureetcpasswdapp",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authsecureetcpasswdappfa92b267",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
