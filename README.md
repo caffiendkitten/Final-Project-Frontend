@@ -35,6 +35,7 @@ https://flatiron-passwordmanager.netlify.com/ is the live project for your enter
  - CSS
  - React
  - Cryptr
+ - AWS
 
 ## Streatch Goals/ Ideas to work on
 1. Allow users to copy their created unique password into a new Account Group
