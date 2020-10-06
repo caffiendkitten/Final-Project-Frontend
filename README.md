@@ -1,7 +1,7 @@
 # Password Manager Frontend
 
 ## Overview
-This is the Backend for my final project at Flatiron School. 
+This is the Frontend for my final project at Flatiron School. 
 This project was inspired for my passion for information security and my interest in software engineering and built over 2.5 weeks. 
 
 This is a password manager that will allow users to save login credentials for sites, create a unique password based on their needs, and check if a password has been found in a breach via HaveIBeenPwnd. 
