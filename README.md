@@ -30,12 +30,15 @@ https://flatiron-passwordmanager.netlify.com/ is the live project for your enter
  - Run `npm start` and go to the localhost in your browser
   - If you are running the backend API at the same time you will need to open http://localhost:3001 to view it in the browser, or specify a specific port for the json server to run on and the app to run on as they cannot run on the same port.
 
-## Technologies Used
+## Technologies and Libraries Used
  - Javascript
  - CSS
  - React
  - Cryptr
- - AWS
+ - AWS Amplify
+ - AWS Amplify CLI
+ - AWS Amplify React
+ - uuid 
 
 ## Streatch Goals/ Ideas to work on
 1. Allow users to copy their created unique password into a new Account Group
