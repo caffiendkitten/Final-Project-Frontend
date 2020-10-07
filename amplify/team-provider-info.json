@@ -10,6 +10,13 @@
       "StackName": "amplify-finalprojectfrontend-dev-170853",
       "StackId": "arn:aws:cloudformation:us-west-2:529835034378:stack/amplify-finalprojectfrontend-dev-170853/49858940-0831-11eb-94e4-06da7c373ee3",
       "AmplifyAppId": "d3cuohrmjjzvd8"
+    },
+    "categories": {
+      "auth": {
+        "finalprojectfrontend09a14ee309a14ee3": {
+          "hostedUIProviderCreds": "[]"
+        }
+      }
     }
   }
 }
