@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
-import Auth from '../src/containers/Auth'
+import Auths from '../src/containers/Auth'
 import { Container,  Col } from 'react-bootstrap';
 
 // import AddToAccount from './containers/AddToAccount'
@@ -11,8 +11,8 @@ import { Container,  Col } from 'react-bootstrap';
 
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+Amplify.configure(awsconfig);
 
 const Cryptr = require('cryptr');
 // const key = ''
@@ -395,7 +395,7 @@ class App extends Component {
         <Container>
             <Col className="login"><Login handleLogin={this.login} /></Col>
             <Col className="signup"><SignUp handleSignUp={this.signup} /></Col>
-            <Col className="signup"><Auth /></Col>
+            <Col className="signup"><Auths /></Col>
 
         </Container>
       </div>
