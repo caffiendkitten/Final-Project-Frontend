@@ -8,6 +8,10 @@ import { Container,  Col } from 'react-bootstrap';
 // import AddToAccount from './containers/AddToAccount'
 // import Search from './containers/Search'
 
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 const Cryptr = require('cryptr');
 // const key = ''
@@ -390,6 +394,8 @@ class App extends Component {
         <Container>
             <Col className="login"><Login handleLogin={this.login} /></Col>
             <Col className="signup"><SignUp handleSignUp={this.signup} /></Col>
+            <Col className="signup"><AmplifySignOut /></Col>
+
         </Container>
       </div>
       }
