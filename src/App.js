@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
+import Auth from '../src/containers/Auth'
 import { Container,  Col } from 'react-bootstrap';
 
 // import AddToAccount from './containers/AddToAccount'
@@ -394,7 +395,7 @@ class App extends Component {
         <Container>
             <Col className="login"><Login handleLogin={this.login} /></Col>
             <Col className="signup"><SignUp handleSignUp={this.signup} /></Col>
-            <Col className="signup"><AmplifySignOut /></Col>
+            <Col className="signup"><Auth /></Col>
 
         </Container>
       </div>
