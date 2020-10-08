@@ -1,8 +1,8 @@
 import React from 'react';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import Amplify from 'aws-amplify';
-import awsconfig from '../aws-exports';
-Amplify.configure(awsconfig);
+// import Amplify from 'aws-amplify';
+// import awsconfig from '../aws-exports';
+// Amplify.configure(awsconfig);
 
 const App = () => (
   <div>
