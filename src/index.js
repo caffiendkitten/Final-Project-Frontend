@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import dotenv from 'dotenv'
+
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
 dotenv.config()
 
 ReactDOM.render(<App />, document.getElementById('root'));

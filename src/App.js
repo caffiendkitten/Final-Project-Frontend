@@ -9,10 +9,10 @@ import { Container,  Col } from 'react-bootstrap';
 // import AddToAccount from './containers/AddToAccount'
 // import Search from './containers/Search'
 
-import Amplify, { Auth } from 'aws-amplify';
-import awsconfig from './aws-exports';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-Amplify.configure(awsconfig);
+// import Amplify, { Auth } from 'aws-amplify';
+// import awsconfig from './aws-exports.js';
+// // import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+// Amplify.configure(awsconfig);
 
 const Cryptr = require('cryptr');
 // const key = ''
