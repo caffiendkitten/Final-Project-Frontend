@@ -6,10 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import dotenv from 'dotenv'
 
 import Amplify from "aws-amplify";
-import awsmobile from "./aws-exports";
-Amplify.configure(awsmobile);
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
 dotenv.config()
- 
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
