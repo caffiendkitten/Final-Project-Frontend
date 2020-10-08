@@ -6,8 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import dotenv from 'dotenv'
 
 import Amplify from "aws-amplify";
-import awsExports from "./aws-exports";
-Amplify.configure(config);
+import awsmobile from "./aws-exports";
+Amplify.configure(awsmobile);
 dotenv.config()
 
 ReactDOM.render(<App />, document.getElementById('root'));
