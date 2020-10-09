@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/credz",
+            "lambdaFunction": "etcPassAppLambdaFunction",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/credz"
+        }
+    ],
+    "resourceName": "thizapi",
+    "apiName": "thizapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "etcPassAppLambdaFunction"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-finalprojectfrontend-dev-170853-authRole",
+        "unAuthRoleName": "amplify-finalprojectfrontend-dev-170853-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "etcPassAppLambdaFunction",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

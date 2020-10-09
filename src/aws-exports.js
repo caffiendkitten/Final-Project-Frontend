@@ -20,7 +20,21 @@ const awsmobile = {
         "redirectSignOut": "https://finalprojectfrontend09a14ee309a14ee3/login/",
         "responseType": "token"
     },
-    "federationTarget": "COGNITO_USER_POOLS"
+    "federationTarget": "COGNITO_USER_POOLS",
+    "aws_dynamodb_all_tables_region": "us-west-2",
+    "aws_dynamodb_table_schemas": [
+        {
+            "tableName": "Userz-dev",
+            "region": "us-west-2"
+        }
+    ],
+    "aws_cloud_logic_custom": [
+        {
+            "name": "thizapi",
+            "endpoint": "https://1t59x3yfv1.execute-api.us-west-2.amazonaws.com/dev",
+            "region": "us-west-2"
+        }
+    ]
 };
 
 
