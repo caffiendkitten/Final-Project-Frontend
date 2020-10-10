@@ -60,15 +60,15 @@ class UserSettings extends React.Component {
                 />
             <button onClick={this.editUser}>Update Username</button> */}
         <br></br>
-            <input 
+            {/* <input 
                 placeholder={this.props.email} 
                 onChange={this.handleChange} 
                 name="updateEmail" 
                 type="email"
                 id="email-field"
                 />
-            <button onClick={this.editEmail}>Edit Email Address</button>
-            
+            <button onClick={this.editEmail}>Edit Email Address</button> */}
+            <p>{this.props.email}</p>
             
         </div>       
     }

@@ -19,7 +19,7 @@ cryptr = new Cryptr('Akeytobemoved');
 
 
   render () {
-    // console.log("Decrypted on retrieval ", encryptedString); 
+    console.log("Decrypted on retrieval ", this.props.logins.saved_password); 
 
 // console.log(this.props.account)
 // debugger;

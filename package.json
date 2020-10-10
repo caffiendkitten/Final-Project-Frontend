@@ -7,10 +7,11 @@
     "cryptr": "^4.0.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.11",
+    "react-cookie": "^4.0.3",
     "react-dom": "^16.8.6",
     "react-have-i-been-pwned": "^1.1.2",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

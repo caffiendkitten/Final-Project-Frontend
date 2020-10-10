@@ -4,18 +4,20 @@ import Header from './components/Header'
 import SignUp from '../src/containers/SignUp'
 import Login from '../src/containers/Login'
 import { Container,  Col } from 'react-bootstrap';
+import Cookies from 'universal-cookie';
+
 // import AddToAccount from './containers/AddToAccount'
 // import Search from './containers/Search'
 
-// const userURL = "http://localhost:3000/api/v1/login"
-// const signupURL = "http://localhost:3000/api/v1/users"
-// const accountURL = "http://localhost:3000/api/v1/accounts"
-// const loginURL = "http://localhost:3000/api/v1/logins"
+const userURL = "http://localhost:3000/api/v1/login"
+const signupURL = "http://localhost:3000/api/v1/users"
+const accountURL = "http://localhost:3000/api/v1/accounts"
+const loginURL = "http://localhost:3000/api/v1/logins"
 
-const userURL = "https://the-trapper-keeper.herokuapp.com/api/v1/login"
-const signupURL = "https://the-trapper-keeper.herokuapp.com/api/v1/users"
-const accountURL = "https://the-trapper-keeper.herokuapp.com/api/v1/accounts"
-const loginURL = "https://the-trapper-keeper.herokuapp.com/api/v1/logins"
+// const userURL = "https://the-trapper-keeper.herokuapp.com/api/v1/login"
+// const signupURL = "https://the-trapper-keeper.herokuapp.com/api/v1/users"
+// const accountURL = "https://the-trapper-keeper.herokuapp.com/api/v1/accounts"
+// const loginURL = "https://the-trapper-keeper.herokuapp.com/api/v1/logins"
 
 
 const Cryptr = require('cryptr');
@@ -389,11 +391,11 @@ class App extends Component {
           />
         </div>
       :<div align="center">
-        <h1>Welcome to the Password Manager</h1>
+        <h1>Welcome to the Trapper Keeper.<br></br> My Password Manager Application</h1>
         <hr></hr>
         <p>
-          With billions of login credentials being breached at any time it becomes more and more important to secure our data. <br></br>
-          The first step to security is a password manager as this will allow people to create strong and unique passwords.<br></br>
+          With billions of login credentials being breached at any time it becomes more and more important to secure our data. 
+          The first step to security is a password manager as this will allow people to create strong and unique passwords.
           By creating strong and unique passwords this will help keep user credentials secure even if they are part of a data breach.
         </p>
         <Container>
