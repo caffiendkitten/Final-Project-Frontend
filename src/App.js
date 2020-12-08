@@ -38,11 +38,13 @@ class App extends Component {
   }
 
 
+
+// ***** Log into application *****
   login = userObj => {
     fetch(process.env.REACT_APP_userURL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+	  'Content-Type':'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify(userObj)
@@ -50,7 +52,6 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         sessionStorage.setItem('token', json.jwt)
-        // debugger;
         this.setState({
           token: json.jwt,
           user: json.user.username,
@@ -60,20 +61,14 @@ class App extends Component {
           accounts: json.user.accounts
         })
       })
-      .catch(error => alert("Unknown username or password."))
-
+      .catch(error => alert("Unknown username or password.", error))
   }
 
 
-
+// ***** Sign User up for account *****
   signup = (userObj) =>{
-    // debugger;
-
-    // console
-
-
     fetch(process.env.REACT_APP_signupURL, {
-      method: 'POST', 
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
         'Content-Type': 'application/json',
@@ -89,11 +84,8 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(json => {
-      // debugger;
       sessionStorage.setItem('token', json.jwt)
       // sessionStorage.setItem('user', json.user.username)
-      // console.log("user object in login fetch: ", json.user.username)
-      // console.log("user accounts in login fetch: ", json.error)
       this.setState({
         token: json.jwt,
         user: json.user.username,
@@ -101,10 +93,13 @@ class App extends Component {
         email: json.user.email,
       })
     })
-    .catch(error => alert("Error signing up. Username is already taken. Please choose another."));
+    .catch(error => alert("Error signing up. Username is already taken. Please choose another.", error));
   }
 
 
+
+
+// ***** Log user out of session *****
   logout = () => {
     this.setState({
       user: {},
@@ -116,6 +111,10 @@ class App extends Component {
   }
 
 
+
+
+
+// ***** Create Credential Account Grouping *****
   createAccount = (accountObj) =>{
     console.log(accountObj)
     // this.setState({
@@ -123,10 +122,10 @@ class App extends Component {
     // })
     // debugger;
     fetch(process.env.REACT_APP_accountURL, {
-      method: 'POST', 
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',    
         'Accept': 'application/json'
       },
       body: JSON.stringify({
@@ -138,7 +137,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(json => {
-    
+
       // sessionStorage.setItem('token', json.jwt)
       // sessionStorage.setItem('user', json.user.username)
       // console.log("user object in login fetch: ", json.user.username)
@@ -153,10 +152,15 @@ class App extends Component {
       })
 
     })
-    .catch(error => alert("Error adding new Account Grouping. Please try again."));
+    .catch(error => console.log("error: ", error)); //alert("Error adding new Account Grouping. Please try again."));
 //  debugger;
   }
 
+
+
+
+
+// ***** Delete Credential Account Grouping if empty *****
   deleteAccount = (deleteAccountObj) =>{
     // console.log(accountObj, this.state.user_id)
     // console.log("hit", deleteAccountObj)
@@ -169,10 +173,10 @@ class App extends Component {
     })
     // // debugger;
     fetch(`${process.env.REACT_APP_accountURL}/${deleteAccountObj.id}`, {
-      method: 'DELETE', 
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',   
         'Accept': 'application/json'
       }
       // body: JSON.stringify({
@@ -194,10 +198,17 @@ class App extends Component {
     //     accounts: [...this.state.accounts, accountObj]
     //   })
     // })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error:', console.log("error at deleteAccounr", error)));
 
   }
 
+
+
+
+
+
+
+// ***** Add Cred to account grouping *****
   addToAccount = (addToAccountObj, username, password) =>{
     addToAccountObj.username = username;
     addToAccountObj.saved_password = password;
@@ -206,37 +217,30 @@ class App extends Component {
     // const Cryptr = require('cryptr');
     // const cryptr = new Cryptr('myTotalySecretKey');
     const encryptedString = cryptr.encrypt(password);
-    console.log("encrypted on send", encryptedString); 
+    console.log("encrypted on send", encryptedString);
     // const decryptedString = cryptr.decrypt(encryptedString);
-    // console.log(decryptedString); 
-
-    
-
-
+    // console.log(decryptedString);
     const updatedAccounts = this.state.accounts.map((i) => {
       if (i.account_name === addToAccountObj.account_name) {
         i.logins = [...i.logins, {username: username, saved_password: encryptedString, account_id: i.id}]
-      } 
+      }
       return i
     })
     // this.setState({
     //   accounts: updatedAccounts
     // })
-// debugger
-
+	// debugger
 
     // console.log(addToAccountObj)
-
-
     fetch(process.env.REACT_APP_loginURL, {
-      method: 'POST', 
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',    
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        
+
         login: {
           username: username,
           password_digest: encryptedString,
@@ -259,7 +263,7 @@ class App extends Component {
       // const updatedAccounts = this.state.accounts.map((i) => {
       //   if (i.account_name === addToAccountObj.account_name) {
       //     i.logins = [...i.logins, {username: username, saved_password: encryptedString, account_id: addToAccountObj.id}]
-      //   } 
+      //   }
       //   return i
       // })
       this.setState({
@@ -272,53 +276,45 @@ class App extends Component {
     // const updatedAccounts = this.state.accounts.map((i) => {
     //   if (i.account_name === addToAccountObj.account_name) {
     //     i.logins = [...i.logins, {username: username, saved_password: encryptedString, account_id: i.id}]
-    //   } 
+    //   }
     //   return i
     // })
 
-    
+
   }
 
 
 
+// ***** Delete Credential from Account Grouping
   deleteFromAccount = (deleteFromAccountObj) =>{
-
-    // console.log("add cred to app here:", deleteFromAccountObj);
-
     const updatedAccounts = this.state.accounts.map((i) => {
       if (i.id === deleteFromAccountObj.account_id) {
         i.logins = i.logins.filter((login) => {
           return deleteFromAccountObj.id !== login.id
         })
-      } 
+      }
       return i
     })
-    
-    this.setState({
-      accounts: updatedAccounts
-    })
-
-// console.log(updatedAccounts)
-
     // debugger;
+
     fetch(`${process.env.REACT_APP_loginURL}/${deleteFromAccountObj.id}`, {
-      method: 'DELETE', 
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',    
         'Accept': 'application/json'
-      }
-      // body: JSON.stringify({
-        
-      //   login: {
-      //     username: username,
-      //     password_digest: password,
-      //     account_id: addToAccountObj.id
-      //   }
-      // })
+      } //,
+//       body: JSON.stringify({
+
+    //     login: {
+   //        username: deleteFromAccountObj.username,
+  //         password_digest: deleteFromAccountObj.saved_password,
+ //          account_id: deleteFromAccountObj.id
+  //       }
+ //      })
     })
-    // .then(res => res.json())
-    // .then(json => {
+    .then(res => res.json())
+    .then(json => {
     //   sessionStorage.setItem('token', json.jwt)
     //   // this.setState({
     //   //   // token: json.jwt,
@@ -327,27 +323,27 @@ class App extends Component {
     //   //   // password: json.user.password,
     //   //   // email: json.user.email,
     //   //   accounts: json.user.accounts
-    //   // })
-    // })
-    .catch(error => console.error('Error:', error));
-
-
-
-
-    
+	this.setState({
+		accounts: updatedAccounts
+	})
+    })
+    .catch(error => console.error('An error happened when attempting to delete the credential. please try again'));
   }
 
+
+
+
+
+// ***** Search Account Groupings *****
   filterAccounts = (filteredBy) => {
     console.log("Word to filter By:", filteredBy)
-    
     let newAccount = this.state.accounts.filter(term => {
       return term.account_name.toUpperCase().includes(filteredBy.toUpperCase())
     })
 
-    
 
     // console.log("new account that is filtered:", newAccount)
-    if(!filteredBy){ //  || newAccount[0].logins.length === 0 || newAccount[0] === [] 
+    if(!filteredBy){ //  || newAccount[0].logins.length === 0 || newAccount[0] === []
       this.setState({
         filteredAccounts: []
       }) //, () => alert("No Account Grouping Exists with This Name. Please Check Spelling."))
@@ -366,22 +362,21 @@ class App extends Component {
   render () {
     return <Fragment>
 
-      {sessionStorage.getItem('token') ? 
+      {sessionStorage.getItem('token') ?
         <div className="App">
-          <Header 
-          user={this.state.user} 
-          email={this.state.email} 
+          <Header
+          user={this.state.user}
+          email={this.state.email}
           username={this.state.username}
           password={this.state.password}
           accounts={this.state.accounts}
-          handleLogout={this.logout} 
+          handleLogout={this.logout}
           createAccount={this.createAccount}
-          deleteAccount={this.deleteAccount}   
-          addToAccount={this.addToAccount}     
-          deleteFromAccount={this.deleteFromAccount}  
+          deleteAccount={this.deleteAccount}
+          addToAccount={this.addToAccount}
+          deleteFromAccount={this.deleteFromAccount}
           filterAccounts={this.filterAccounts}
           filteredAccounts = {this.state.filteredAccounts}
-          
           />
         </div>
       :<div align="center">
@@ -395,7 +390,7 @@ class App extends Component {
         <Container>
             <Col className="login"><Login handleLogin={this.login} /></Col>
             <Col className="signup"><SignUp handleSignUp={this.signup} /></Col>
-            <Col className="signup"><Auths /></Col>
+           {/* <Col className="signup"><Auths /></Col> */}
 
         </Container>
       </div>
